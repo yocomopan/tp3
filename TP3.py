@@ -10,13 +10,13 @@ hp = 20
 combat = 0
 combat_win = 0
 combat_loss = 0
-play_game = True
-showed_rules = False
 opposing_power = 0
 power = 0
-combat_boss = False
-boss_time = []
-boss_win = 0
+play_game = True
+showed_rules = False
+boss_time = False
+list = []
+
 
 input("Appuyer pour commencer")
 
@@ -27,19 +27,11 @@ while play_game:
               f"Vous avez {combat_win} victoires et {combat_loss} defaites.")
         play_game = False
         continue
-    if combat_win != 0:  # if win does not = 0
-        if combat_win % 3 == 0:  # if win is a multiplication of 3
-            boss_time = True
-            if not boss_time:  # if list doesn't have an element, activates
-                opposing_power = random.randint(3, 5)
-                print("Boss Time")
-                boss_time.append(1)  # List gains an element
-            else:  # if list does have an element, activates
-                boss_time.remove(1)  # List loses an element
 
-
-
-
+    if combat_win > 0 and combat_win % 3 == 0 and list[-1] == "win":  # if win is * of 3 & higher than 0
+        print("!BOSS TIME!")
+        boss_time = True
+        opposing_power = random.randint(4, 5)
     else:
         if not showed_rules:
             opposing_power = random.randint(1, 5)
@@ -47,7 +39,11 @@ while play_game:
         else:
             showed_rules = False
 
-    print(f"Vous tombez face à face avec un adversaire de difficulté : {opposing_power}")
+    if boss_time:  # if active
+        print(f"Vous tombez face à face avec un boss de difficulté : {opposing_power}")
+    else:
+        print(f"Vous tombez face à face avec un adversaire de difficulté : {opposing_power}")
+
     options = int(input("1- combattre\n2- eviter et ouvrir une autre porte\n3- regle du jeu\n4- Quitter le jeu\n"))
 
     if options == 1:
@@ -57,23 +53,31 @@ while play_game:
             print(f"roulé(e) un {power}")
             combat_win += 1
             hp += opposing_power
-            print(f"Bravo! Vous avez gagner grace à {power - opposing_power} pts de pouvoir de plus que l'ennemi!")
+            list.append("win")  # list adds WIN
+            print(f"Bravo! Vous avez gagner {opposing_power} vies additionnelles!")
 
         else:
             combat_loss += 1
             print(f"roulé(e) un {power}")
             hp -= opposing_power
+            list.append("loss")  # list adds LOSS
             print("Vous avez perdu... Meilleure chance la prochaine fois!")
 
-        print(f"Force de l’adversaire: {opposing_power}\n"
-              f"Niveau de vie de l’usager: {hp}\n"
-              f"Combat:  {combat} \n"
-              f"Victoires: {combat_win} vs. Defaites: {combat_loss}\n")
-        combat_boss = False
+        print("-+- STATUS -+-\n"
+              f"> Force de l’adversaire: {opposing_power}\n"
+              f"> Niveau de vie de l’usager: {hp}\n"
+              f"> Combat:  {combat} \n"
+              f"> Victoires: {combat_win} vs. Defaites: {combat_loss}\n")
+
+        count = len(list)
+        if count == 3:
+            list.pop(0)
+
+
 
     elif options == 2:
         hp -= 1
-        print(f"Niveau de vie de l’usager: {hp}")
+        print(f"|Niveau de vie de l’usager: {hp}|")
 
     elif options == 3:
         showed_rules = True
@@ -85,7 +89,9 @@ while play_game:
               "- Finalement, vous pouvez toujours quitter le jeu quand vous voulez.")
         input("Fermer")
 
-
     elif options == 4:
         print("Votre progrès ne sauvegarde pas! Bon soir.")
         play_game = False
+
+    if boss_time:
+        boss_time = False

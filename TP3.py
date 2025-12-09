@@ -17,6 +17,25 @@ showed_rules = False
 boss_time = False
 list = []
 
+def stats():
+    """
+    automatic function
+    List captures 4 random generated numbers and stores them
+    Reverse puts the list in order from biggest to smallest
+    Pop() removes the last info stored in the list
+    """
+    donnees = []
+    for x in range(2):
+        if boss_time:
+            donnees.append(random.randint(4, 5))
+            donnees.pop()
+            donnees
+        else:
+            donnees.append(random.randint(1, 5))
+            donnees.pop()
+
+    return sum(donnees)
+
 
 input("Appuyer pour commencer")
 

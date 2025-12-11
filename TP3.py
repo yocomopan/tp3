@@ -15,26 +15,17 @@ power = 0
 play_game = True
 showed_rules = False
 boss_time = False
-list = []
+boss_list = []
 
-def stats():
-    """
-    automatic function
-    List captures 4 random generated numbers and stores them
-    Reverse puts the list in order from biggest to smallest
-    Pop() removes the last info stored in the list
-    """
-    donnees = []
+
+def double_dice():
+    diced = []
     for x in range(2):
         if boss_time:
-            donnees.append(random.randint(4, 5))
-            donnees.pop()
-            donnees
+            diced.append(random.randint(4, 5))
         else:
-            donnees.append(random.randint(1, 5))
-            donnees.pop()
-
-    return sum(donnees)
+            diced.append(random.randint(1, 5))
+    return sum(diced)
 
 
 input("Appuyer pour commencer")
@@ -47,18 +38,18 @@ while play_game:
         play_game = False
         continue
 
-    if combat_win > 0 and combat_win % 3 == 0 and list[-1] == "win":  # if win is * of 3 & higher than 0
+    if combat_win > 0 and combat_win % 3 == 0 and boss_list[-1] == "win":
         print("!BOSS TIME!")
         boss_time = True
-        opposing_power = random.randint(4, 5)
+        opposing_power = double_dice()
     else:
         if not showed_rules:
-            opposing_power = random.randint(1, 5)
-            power = random.randint(1, 6)
+            opposing_power = double_dice()
+            power = double_dice()
         else:
             showed_rules = False
 
-    if boss_time:  # if active
+    if boss_time:
         print(f"Vous tombez face à face avec un boss de difficulté : {opposing_power}")
     else:
         print(f"Vous tombez face à face avec un adversaire de difficulté : {opposing_power}")
@@ -72,14 +63,14 @@ while play_game:
             print(f"roulé(e) un {power}")
             combat_win += 1
             hp += opposing_power
-            list.append("win")  # list adds WIN
+            boss_list.append("win")
             print(f"Bravo! Vous avez gagner {opposing_power} vies additionnelles!")
 
         else:
             combat_loss += 1
             print(f"roulé(e) un {power}")
             hp -= opposing_power
-            list.append("loss")  # list adds LOSS
+            boss_list.append("loss")
             print("Vous avez perdu... Meilleure chance la prochaine fois!")
 
         print("-+- STATUS -+-\n"
@@ -88,11 +79,9 @@ while play_game:
               f"> Combat:  {combat} \n"
               f"> Victoires: {combat_win} vs. Defaites: {combat_loss}\n")
 
-        count = len(list)
+        count = len(boss_list)
         if count == 3:
-            list.pop(0)
-
-
+            boss_list.pop(0)
 
     elif options == 2:
         hp -= 1

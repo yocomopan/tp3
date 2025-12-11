@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eaf35e65-cee4-48f0-9ef1-a8aa9d73d28c" name="Changes" comment="Modif. unfixed consecutif boss if prev. boss was a loss.">
+    <list default="true" id="eaf35e65-cee4-48f0-9ef1-a8aa9d73d28c" name="Changes" comment="Modif. ajouté une fonction qui calcule la somme de deux dés des adversaires et boss (Incomplet/non-terminé)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TP3.py" beforeDir="false" afterPath="$PROJECT_DIR$/TP3.py" afterDir="false" />
     </list>
@@ -36,7 +36,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -178,7 +178,23 @@
       <option name="project" value="LOCAL" />
       <updated>1764878196369</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Modif. Les conditions pour qu'un boss apparait, ont été modifié. Une liste et ses fonctions étaient ajouté aux conditions et le 'boss_time' était modifié.">
+      <option name="closed" value="true" />
+      <created>1765299867795</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1765299867795</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Modif. ajouté une fonction qui calcule la somme de deux dés des adversaires et boss (Incomplet/non-terminé)">
+      <option name="closed" value="true" />
+      <created>1765300302621</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1765300302621</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +205,8 @@
     <MESSAGE value="Modif. - hp de l'adversaire, + les options 3 (regles) et 4 (exit) , + ecran perdu, + resultat du combat" />
     <MESSAGE value="Modif. + Boss combat, reparer les regles, not showed rules, + hp =+ 4, changer de places quelques lignes de codes" />
     <MESSAGE value="Modif. unfixed consecutif boss if prev. boss was a loss." />
-    <option name="LAST_COMMIT_MESSAGE" value="Modif. unfixed consecutif boss if prev. boss was a loss." />
+    <MESSAGE value="Modif. Les conditions pour qu'un boss apparait, ont été modifié. Une liste et ses fonctions étaient ajouté aux conditions et le 'boss_time' était modifié." />
+    <MESSAGE value="Modif. ajouté une fonction qui calcule la somme de deux dés des adversaires et boss (Incomplet/non-terminé)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modif. ajouté une fonction qui calcule la somme de deux dés des adversaires et boss (Incomplet/non-terminé)" />
   </component>
 </project>
